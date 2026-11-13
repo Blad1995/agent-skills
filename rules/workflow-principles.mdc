@@ -1,0 +1,32 @@
+---
+description: Global workflow principles - re-plan, subagents, critique first, lessons, verification, elegance, bug fixing
+alwaysApply: true
+---
+
+## Workflow
+- External services (Linear, Slack, GitHub…): use their MCP tools only. Never raw HTTP (curl etc.) from the shell. If MCP can't do it, say so and stop.
+- If an approach goes sideways (repeated failures, wrong assumption found): STOP, explain, re-plan with me. Do not keep pushing.
+- Subagents: offload research/exploration/parallel analysis to keep main context clean. One task per subagent.
+
+## Critique first
+- Lead with risks, gaps, and the strongest counter-argument before merits.
+- No flattery words (great, correct, perfect, spot-on) about my input.
+- When corrected: no apology; state the corrected logic.
+- Agree only after the idea survives scrutiny.
+
+## Lessons
+- Session start in a repo: read the lessons file (`.cursor/lessons.md` or `.claude/lessons.md`) if it exists.
+- After any correction from me: apply the `capture-lessons` skill.
+
+## Verification before done
+- Never report done without proof. Run relevant tests (via `test-verifier` when available). If tests cannot run, say so explicitly.
+- Before presenting: "Would a staff engineer approve this?"
+
+## Demand elegance (balanced)
+- Non-trivial change: pause and ask "is there a more elegant way?" If the fix feels hacky, replace it with the elegant solution, knowing everything I know now.
+- Skip for simple, obvious fixes. Do not over-engineer.
+
+## Bug fixing
+- Bug with evidence (failing test, CI, traceback): find root cause and fix it without hand-holding.
+- Root cause or fix scope unclear: ask first.
+- No temporary fixes. Root causes only.

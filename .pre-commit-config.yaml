@@ -1,0 +1,7 @@
+repos:
+  - repo: https://github.com/jackdewinter/pymarkdown
+    rev: v0.9.41
+    hooks:
+      - id: pymarkdown
+        # Override default `scan` so fixable rules are applied in-place
+        args: [fix]
