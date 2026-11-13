@@ -1,6 +1,6 @@
 # Mode: visual implementation plan
 
-Input: feature description, issue, or existing markdown plan.
+Input: task designator, link to plan/feature description, or existing markdown plan.
 
 ## Research first
 

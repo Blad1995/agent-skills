@@ -1,19 +1,19 @@
 ---
 name: review-my-code
-description: Review code changes between current branch and master, checking against the issue/plan and coding best practices. Use when the user asks to review their code, runs /grill-me or /review-my-code, or wants feedback on current branch changes.
+description: Review code changes between current branch and master, checking against the task (task designator or link to plan/feature description) and coding best practices. Use when the user asks to review their code, runs /grill-me or /review-my-code, or wants feedback on current branch changes.
 ---
 
 # Review My Code
 
-This skill reviews the current branch's changes against `master`, ensuring they align with the project plan or issue, follow best practices, and use the best architectural approach.
+This skill reviews the current branch's changes against `master`, ensuring they align with the task (task designator or link to plan/feature description), follow best practices, and use the best architectural approach.
 
 > Conflict rule: rules already in this skill override the Linus-derived sections below (Severity, Contract check, Finding format, and anything sourced from `severity.md`).
 
 ## 1. Gather Context
 - Run `git diff master...HEAD` (or the equivalent for the base branch) to see committed branch changes. If uncommitted work matters, also run `git diff` (unstaged) and `git diff --staged` (staged).
-- **Check the plan**: Does the code adhere to the plan or issue?
-  - Spec sources, first match wins: issue/plan given by the user (ID, URL, file, or text) > `.plan.md` / `tmp/brief-*.md` for this branch > issue ID in `git branch --show-current` (e.g. `ABC-123`, `#123`). Fetch issue details with the matching plugin/MCP (Linear, GitHub, …) if enabled. If no spec is found, **ask the user once**; if there is none, review against the diff and commit messages only and say so.
-- **Persist context for reviewers**: write the diff to `<repo root>/tmp/review-diff-<slug>.patch` and the issue / plan text to `<repo root>/tmp/review-spec-<slug>.md` (create `tmp/` if missing).
+- **Check the task**: Does the code adhere to the task spec?
+  - Spec sources, first match wins: task designator or link to plan/feature description given by the user (e.g. `ABC-123`, URL, file path, or pasted text) > `.plan.md` / `tmp/brief-*.md` for this branch > task designator in `git branch --show-current`. Resolve a designator or link with whatever plugin/MCP/tool is enabled for it. If no spec is found, **ask the user once**; if there is none, review against the diff and commit messages only and say so.
+- **Persist context for reviewers**: write the diff to `<repo root>/tmp/review-diff-<slug>.patch` and the task spec text to `<repo root>/tmp/review-spec-<slug>.md` (create `tmp/` if missing).
 
 ## 1a. Fresh-context reviewers
 
@@ -47,7 +47,7 @@ Goldfish lenses (§1a) apply these sections; in-session reviews apply all of the
 Focus your review on the following areas. Every finding must point at a concrete line or block, cited as a code reference (`startLine:endLine:filepath`) so it reads like an inline comment.
 
 ### Requirements Compliance
-- Verify every requirement from the plan or issue is addressed.
+- Verify every requirement from the task spec is addressed.
 - Flag anything missing, incomplete, or violating the spec.
 - Note unhandled edge cases (malformed input, missing fields, invalid formats).
 

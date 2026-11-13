@@ -22,7 +22,7 @@ Always resolve conflicts. Never abort the merge or rebase unless the user explic
 2. Understand branch intent before editing.
    - Read the local commits that are not in master/main.
    - Read the relevant commit messages and diffs.
-   - When available, inspect linked PRs, merge requests, Linear issues, Jira tickets, or GitHub/GitLab discussions.
+   - When available, inspect linked PRs, the task designator, or the link to the plan/feature description.
    - Identify the primary source of each side of the conflict: local branch change, target branch change, generated file, formatter output, or test fixture update.
 
 3. Resolve each conflict hunk.

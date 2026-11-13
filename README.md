@@ -59,7 +59,7 @@ Design flow (inspired by the [Elephant-Goldfish Model](https://github.com/google
 | `brainstorming` | Idea -> concept brief with parallel fresh-context lenses. No code. |
 | `writing-plans` | Implementation plans (`.plan.md`) with clarification and optional Forgetful memory. |
 | `executing-plans` | Execute a plan step by step; coordinator mode delegates todos. |
-| `review-my-code` | Review branch vs `master` against the issue/plan, with severity model. |
+| `review-my-code` | Review branch vs `master` against the task designator or link to plan/feature description, with severity model. |
 | `fix-mr-review-points` | Fetch unresolved PR review threads and implement fixes. Never resolves threads. |
 | `mr-points-still-applicable-summary` | Classify PR review threads: still applicable vs fixed/deferred. Read-only. |
 | `git-commit-helper` | Conventional commit messages + staging workflow. |
@@ -94,7 +94,7 @@ Only one MCP server is configured here: [Forgetful](https://github.com/scottrbk/
 | `writing-plans`, `capture-lessons`, `/generate-tests` | Forgetful MCP | optional |
 | `datadog-log-investigation` | Datadog plugin | required |
 | `migrate-and-prune-code` | Datadog plugin, any DB MCP | optional |
-| `review-my-code`, `/grill-me` | Linear or GitHub plugin (issue context) | optional |
+| `review-my-code`, `/grill-me` | Plugin/tool that resolves your task designator or plan link (task context) | optional |
 | `fix-mr-review-points`, `mr-points-still-applicable-summary` | GitHub plugin **or** authenticated [`gh`](https://cli.github.com/) CLI | one required |
 | `obsidian-manage-notes` | Obsidian CLI + running Obsidian app | required |
 | `test-writer`, `test-verifier` | Optional repo skills `running_tests_locally`, `integration-tests`, `write-unit-tests` | optional |
